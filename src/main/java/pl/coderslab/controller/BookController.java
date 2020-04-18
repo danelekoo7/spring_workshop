@@ -30,12 +30,12 @@ public class BookController {
                 "Bruce Eckel", "Helion", "programming");
     }
 
-    @RequestMapping("/getBooks")
+    @GetMapping
     public List<Book> getBooks() {
         return memoryBookService.getList();
     }
 
-    @RequestMapping("/getBook/{id}")
+    @GetMapping("{id}")
     public Book getBooks(@PathVariable long id) {
         return memoryBookService.getBookById(id);
     }
@@ -55,6 +55,5 @@ public class BookController {
     public void delete(@PathVariable long id) {
         memoryBookService.delete(id);
     }
-
 
 }
