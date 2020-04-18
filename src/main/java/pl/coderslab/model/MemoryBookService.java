@@ -42,7 +42,12 @@ public class MemoryBookService {
 
         for (Book b : list) {
             if (b.id == id) {
+                b.author=book.author;
+                b.id=book.id;
+                b.publisher=book.publisher;
                 b.isbn = book.isbn;
+                b.title=book.title;
+                b.type=book.type;
             }
         }
     }

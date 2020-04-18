@@ -45,5 +45,16 @@ public class BookController {
         memoryBookService.add(book);
     }
 
+    @PutMapping("{id}")
+    public void put(@RequestBody Book book, @PathVariable long id) {
+        memoryBookService.update(id, book);
+    }
+
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable long id) {
+        memoryBookService.delete(id);
+    }
+
 
 }
