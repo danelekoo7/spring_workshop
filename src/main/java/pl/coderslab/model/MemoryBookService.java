@@ -8,6 +8,7 @@ import java.util.List;
 @Service
 public class MemoryBookService {
     private List<Book> list;
+
     public MemoryBookService() {
         list = new ArrayList<>();
         list.add(new Book(1L, "9788324631766", "Thinking in Java", "Bruce Eckel",
@@ -17,25 +18,41 @@ public class MemoryBookService {
         list.add(new Book(3L, "9780130819338", "Java 2. Podstawy",
                 "Cay Horstmann, Gary Cornell", "Helion", "programming"));
     }
-    public List<Book> getList() {return list;}
-    public void setList(List<Book> list) {this.list = list;}
 
-
-    public Book getBookById(long id){
-        return list.get((int) id);
-    }
-
-
-    public List<Book> update(long id,Book book){
-        list.add((int) id,book);
+    public List<Book> getList() {
         return list;
     }
 
-    public List<Book> delete(long id){
-        list.remove((int) id);
-        return list;
+    public void setList(List<Book> list) {
+        this.list = list;
     }
 
 
+    public Book getBookById(long id) {
+        for (Book b : list) {
+            if (b.id == id) {
+                return b;
+            }
+        }
+        return null;
+    }
 
+
+    public void update(long id, Book book) {
+
+        for (Book b : list) {
+            if (b.id == id) {
+                b.isbn = book.isbn;
+            }
+        }
+    }
+
+
+    public void add(Book book) {
+        list.add(book);
+    }
+
+    public void delete(long id) {
+        list.remove(getBookById(id));
+    }
 }
