@@ -17,7 +17,7 @@ public class MemoryBookService implements BookService {
                 "Sierra Kathy, Bates Bert", "Helion", "programming"));
         list.add(new Book(3L, "9780130819338", "Java 2. Podstawy",
                 "Cay Horstmann, Gary Cornell", "Helion", "programming"));
-    }
+       }
 
     @Override
     public List<Book> getList() {
