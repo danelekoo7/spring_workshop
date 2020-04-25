@@ -1,6 +1,5 @@
 package pl.coderslab.dao;
 
-
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.model.Book;
