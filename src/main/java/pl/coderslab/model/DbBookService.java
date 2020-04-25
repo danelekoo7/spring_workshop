@@ -3,12 +3,15 @@ package pl.coderslab.model;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import pl.coderslab.dao.BookDao;
+
 import java.util.List;
 
 
 @Service
 @Primary
 public class DbBookService implements BookService {
+
+    private List<Book> list;
 
     private final BookDao bookDao;
 
@@ -18,9 +21,7 @@ public class DbBookService implements BookService {
 
     @Override
     public List<Book> getList() {
-//
-//        bookDao.
-        return null;
+        return bookDao.findAll();
     }
 
     @Override
@@ -30,7 +31,6 @@ public class DbBookService implements BookService {
 
     @Override
     public void update(long id, Book book) {
-
         bookDao.update(book, id);
     }
 
@@ -38,7 +38,6 @@ public class DbBookService implements BookService {
     public void add(Book book) {
         bookDao.saveBook(book);
     }
-
 
     @Override
     public void delete(long id) {
