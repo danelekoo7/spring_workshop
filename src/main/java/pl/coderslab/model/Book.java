@@ -1,7 +1,13 @@
 package pl.coderslab.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "books")
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     String isbn;
     String title;
